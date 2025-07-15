@@ -1,6 +1,8 @@
 <?php
 require 'db.php';
-
+$now = date('Y-m-d H:i:s');
+$pdo->prepare("UPDATE fahrzeuge SET status = 'available', vermietet_bis = NULL WHERE status = 'unavailable' AND vermietet_bis IS NOT NULL AND STR_TO_DATE(vermietet_bis, '%d.%m.%Y %H:%i') <= ?")
+    ->execute([$now]);
 if (!isset($_SESSION['nutzer']) || $_SESSION['admin'] != 1) {
   die("<h2 style='color: red; text-align:center;'>Zugriff verweigert – nur Admins dürfen diese Seite sehen.</h2>");
 }

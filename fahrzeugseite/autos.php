@@ -1,6 +1,8 @@
 <?php
 require 'db.php';
-
+$now = date('Y-m-d H:i:s');
+$pdo->prepare("UPDATE fahrzeuge SET status = 'available', vermietet_bis = NULL WHERE status = 'unavailable' AND vermietet_bis IS NOT NULL AND STR_TO_DATE(vermietet_bis, '%d.%m.%Y %H:%i') <= ?")
+    ->execute([$now]);
 // Fahrzeuge mit Kategorie "autos"
 $stmt = $pdo->prepare("SELECT * FROM fahrzeuge WHERE kategorie = ?");
 $stmt->execute(['autos']);
@@ -94,8 +96,8 @@ $fahrzeuge = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <img src="<?= htmlspecialchars($f['bild_url']) ?>" alt="<?= htmlspecialchars($f['name']) ?>">
       <div class="vehicle-info">
         <h3><?= htmlspecialchars($f['name']) ?></h3>
-        <p>7– Tage <?= htmlspecialchars($f['preis7']) ?>€<br>
-           30– Tage <?= htmlspecialchars($f['preis30']) ?>€</p>
+        <p>7– Tage <?= htmlspecialchars($f['preis7']) ?>$<br>
+           28– Tage <?= htmlspecialchars($f['preis30']) ?>$</p>
         <?php if ($f['status'] === 'available'): ?>
           <p class="available">Verfügbar</p>
         <?php else: ?>
@@ -120,7 +122,7 @@ $fahrzeuge = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <label>Mietdauer</label>
       <select id="dauer" required>
         <option value="7">7 Tage</option>
-        <option value="30">30 Tage</option>
+        <option value="30">28 Tage</option>
       </select>
 
       <button type="submit">Reservieren</button>

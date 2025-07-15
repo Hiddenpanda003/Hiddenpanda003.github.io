@@ -49,54 +49,94 @@ body {
   text-decoration: underline;
 }
 
-/* Hero */
-.hero img {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-}
-
 /* Fahrzeug-Grid */
 .vehicle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background-color: #111;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+  padding: 20px;
 }
+
+/* Fahrzeug-Karte */
 .vehicle-card {
-  background-color: #000;
-  border: 1px solid #333;
-  border-radius: 8px;
+  background-color: #111;
+  border-radius: 10px;
   overflow: hidden;
   text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 460px;
+  border: 1px solid #222;
+  transition: transform 0.2s ease;
 }
+.vehicle-card:hover {
+  transform: scale(1.02);
+}
+
 .vehicle-card img {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
-  display: block;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  background-color: #222;
 }
 .vehicle-info {
   padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .vehicle-info h3 {
   color: red;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 .vehicle-info p {
-  line-height: 1.5;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  margin: 2px 0;
 }
 .available {
   color: limegreen;
   font-weight: bold;
+  margin-top: 0.5rem;
 }
 .unavailable {
   color: red;
   font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Fahrzeug-Info */
+.vehicle-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.vehicle-info h3 {
+  color: red;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.vehicle-info p {
+  line-height: 1.5;
+  margin: 2px 0;
+  font-size: 0.95rem;
+}
+.available {
+  color: limegreen;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.unavailable {
+  color: red;
+  font-weight: bold;
+  margin-top: 0.5rem;
 }
 
 /* Admin-Formular */
@@ -109,11 +149,7 @@ body {
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
-#vehicleForm {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
+
 #vehicleForm input,
 #vehicleForm select,
 #vehicleForm button {
@@ -230,7 +266,6 @@ body {
 }
 
 /* Admin Page */
-
 .admin-panel {
   padding: 2rem;
 }
@@ -285,15 +320,40 @@ form input, form select {
   border-radius: 4px;
 }
 
+.info-section {
+  background: #111;
+  padding: 2rem;
+  color: #eee;
+}
+.info-container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.info-container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.info-container h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+.info-container p {
+  margin: 1rem 0;
+}
+.info-container ul {
+  margin: 1rem 0 1rem 1.5rem;
+}
+.info-container ul li {
+  margin: 0.5rem 0;
+}
+.info-container strong {
+  color: #5cf;
+}
+.info-container .copyright {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #888;
+}
 
-.admin-table button {
-  background: #444;
-  color: white;
-  border: none;
-  padding: 5px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.admin-table button:hover {
-  background: red;
-}

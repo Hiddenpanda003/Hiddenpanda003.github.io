@@ -57,9 +57,9 @@ $kaution = (float) $fahrzeug['kaution'];
     echo json_encode([
         'success' => true,
         'message' => 'Reservierung ist eingegangen.',
-        'kosten' => number_format($kosten, 2) . ' €',
+        'kosten' => number_format($kosten, 2) . ' $',
         'dauer' => $dauer . ' Tage',
-        'kaution' => number_format($kaution, 2) . ' €'
+        'kaution' => number_format($kaution, 2) . ' $'
     ]);
     exit;
 

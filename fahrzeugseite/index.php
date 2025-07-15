@@ -1,6 +1,8 @@
 <?php
 require 'db.php';
-
+$now = date('Y-m-d H:i:s');
+$pdo->prepare("UPDATE fahrzeuge SET status = 'available', vermietet_bis = NULL WHERE status = 'unavailable' AND vermietet_bis IS NOT NULL AND STR_TO_DATE(vermietet_bis, '%d.%m.%Y %H:%i') <= ?")
+    ->execute([$now]);
 // Fehler & Erfolg vorbereiten (für Modal-Anzeige)
 $loginError = $_SESSION['login_error'] ?? null;
 unset($_SESSION['login_error']);
@@ -49,11 +51,11 @@ unset($_SESSION['register_success']);
   </div>
 </header>
 
-<!-- HERO-BANNER -->
+<!-- HERO-BANNER 
 <section class="hero">
   <img src="https://cdn.pixabay.com/photo/2021/06/17/10/38/ferrari-6342699_1280.jpg" alt="Hero Car">
 </section>
-
+-->
 <!-- ADMIN-FORMULAR -->
 <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1): ?>
 <section class="form-section">
@@ -62,8 +64,8 @@ unset($_SESSION['register_success']);
     <input type="text" id="name" placeholder="Fahrzeugname" required>
     <input type="url" id="image" placeholder="Bild-URL" required>
     <input type="text" id="price7" placeholder="7 Tage Preis" required>
-    <input type="text" id="price30" placeholder="30 Tage Preis" required>
-    <input type="text" id="kaution" placeholder="Kaution in €" required>
+    <input type="text" id="price30" placeholder="28 Tage Preis" required>
+    <input type="text" id="kaution" placeholder="Kaution in $" required>
     <select id="status">
       <option value="available">Verfügbar</option>
       <option value="unavailable">Nicht verfügbar bis...</option>
@@ -112,6 +114,7 @@ unset($_SESSION['register_success']);
       </form>
     </div>
 
+
     <!-- REGISTRIERUNG -->
     <div id="authRegister" class="hidden">
       <h2>Registrieren</h2>
@@ -132,7 +135,49 @@ unset($_SESSION['register_success']);
   </div>
 </div>
 <?php endif; ?>
+<section class="info-section">
+  
+  <div class="info-container">
+    <h2>Fahrzeugvermietung ohne Stress – wir machen's möglich!</h2>
+    <p>
+      Entdecken Sie unsere gesamte Fahrzeugvielfalt – übersichtlich für Sie in den oberen Kategorien zusammengestellt.
+    </p>
 
+    <p>
+      Wenn Sie ein Fahrzeug mieten möchten, erreichen Sie uns unter folgenden Nummern: <strong>76694</strong> & <strong>77727</strong> oder reservieren Sie direkt ein Auto über unsere Website, wo Sie auch alle weiteren Informationen finden.
+    </p>
+
+    <p>
+      Zu dem Mietpreis ist für alle Fahrzeuge eine <strong>Kaution</strong> zu hinterlegen, die am Ende der Mietdauer zurückerstattet wird – vorausgesetzt, der Tank ist bei Rückgabe voll und es wurde korrekt getankt.
+    </p>
+    <ul>
+      <li>Kaution für <strong>Cargobobs</strong>: 600.000 $</li>
+      <li>Kaution für alle anderen Fahrzeuge: 50.000 $</li>
+    </ul>
+    <p>
+      Jeder Mieter ist selbst dafür verantwortlich, seine Kaution innerhalb einer Woche nach Mietende zurückzufordern</p>
+      <p> – <strong>danach verfällt der Anspruch auf Rückzahlung.</strong>
+    </p>
+
+    <div class="split-section">
+  <div class="text-block">
+    <h2>Du willst Fahrzeuge vermieten?</h2>
+    <p>Wir übernehmen die Vermittlung für nur <strong>10 %</strong> des Mietpreises!</p>
+    <ul>
+      <li>✅ Keine Anfragen beantworten</li>
+      <li>✅ Kein Papierkram</li>
+      <li>✅ Kein Stress mit der Organisation</li>
+    </ul>
+    <p><strong>Melde dich jetzt bei uns!</strong></p>
+  </div>
+</div>
+
+    <p class="copyright">
+      © 2025 J+T Rental<br>
+      <em>Bei dieser Seite handelt es sich um keine offizielle Seite von GVMP!</em>
+    </p>
+  </div>
+</section>
 <!-- SCRIPTS -->
 <script>
 function loadVehicles() {
