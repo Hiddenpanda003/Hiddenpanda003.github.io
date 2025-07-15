@@ -1,0 +1,299 @@
+/* Reset & Basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  padding-bottom: 4px;
+}
+.nav-links a.active {
+  border-bottom: 2px solid white;
+}
+.navbar-user {
+  font-size: 0.95rem;
+}
+.navbar-user a {
+  color: #5cf;
+  margin-left: 1rem;
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Fahrzeug-Grid */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #111;
+}
+.vehicle-card {
+  background-color: #000;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+.vehicle-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.vehicle-info {
+  padding: 1rem;
+}
+.vehicle-info h3 {
+  color: red;
+  margin-bottom: 0.5rem;
+}
+.vehicle-info p {
+  line-height: 1.5;
+}
+.available {
+  color: limegreen;
+  font-weight: bold;
+}
+.unavailable {
+  color: red;
+  font-weight: bold;
+}
+
+/* Admin-Formular */
+.form-section {
+  padding: 2rem;
+  background: #111;
+  color: white;
+}
+.form-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+#vehicleForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+#vehicleForm input,
+#vehicleForm select,
+#vehicleForm button {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+}
+#vehicleForm input,
+#vehicleForm select {
+  background-color: #222;
+  color: white;
+}
+#vehicleForm button {
+  background-color: crimson;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  grid-column: 1 / -1;
+}
+#vehicleForm button:hover {
+  background-color: darkred;
+}
+
+/* Auth Modal */
+.auth-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.auth-modal {
+  background: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  position: relative;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.auth-modal h2 {
+  margin-bottom: 1rem;
+}
+.auth-modal input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+}
+.auth-modal button {
+  width: 100%;
+  padding: 0.7rem;
+  background: crimson;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.auth-modal button:hover {
+  background: darkred;
+}
+.auth-modal p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.auth-modal a {
+  color: #5cf;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.auth-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Fehler / Erfolg */
+.auth-error {
+  background-color: #ff4444;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+.auth-success {
+  background-color: #44cc44;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Utility */
+.hidden {
+  display: none;
+}
+
+/* Admin Page */
+
+.admin-panel {
+  padding: 2rem;
+}
+.admin-panel h2 {
+  margin-bottom: 1rem;
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #111;
+  color: white;
+}
+.admin-table th,
+.admin-table td {
+  border: 1px solid #333;
+  padding: 0.6rem;
+  text-align: center;
+}
+.admin-table img {
+  border-radius: 4px;
+}
+.admin-table th {
+  background-color: #222;
+}
+
+.admin-table button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.admin-table button:hover {
+  background: red;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+
+.admin-table button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.admin-table button:hover {
+  background: red;
+}
