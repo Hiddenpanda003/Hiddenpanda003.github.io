@@ -66,6 +66,7 @@ $reservierungen = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <div class="navbar-user">
     <?php if (isset($_SESSION['nutzer'])): ?>
       Willkommen, <?= htmlspecialchars($_SESSION['nutzer']) ?> |
+      <a href="profil.php">Profil</a> |
       <a href="logout.php">Logout</a>
     <?php endif; ?>
   </div>
