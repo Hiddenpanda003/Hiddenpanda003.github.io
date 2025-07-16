@@ -357,3 +357,10 @@ form input, form select {
   color: #888;
 }
 
+
+/* Profil-Seite */
+.profil-container { max-width: 900px; margin: 2rem auto; color: white; }
+.profil-form { background:#111; padding:1rem; border-radius:8px; margin-bottom:2rem; }
+.profil-form button { margin-top:1rem; padding:0.6rem 1rem; background:#444; color:white; border:none; border-radius:4px; cursor:pointer; }
+.profil-form button:hover { background:#666; }
+
