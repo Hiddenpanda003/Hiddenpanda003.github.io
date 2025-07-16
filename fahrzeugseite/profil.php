@@ -30,6 +30,14 @@ $reservierungen = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset=\"UTF-8\">
     <title>Mein Profil – J+T Rental</title>
     <link rel="stylesheet" href="style.css">
+    <link rel=\"stylesheet\" href=\"style.css\">
+    <style>
+      .profil-container { max-width: 900px; margin: 2rem auto; color: white; }
+      .profil-form { background:#111; padding:1rem; border-radius:8px; margin-bottom:2rem; }
+      .profil-form input { width:100%; padding:0.6rem; margin-top:0.3rem; background:#222; border:1px solid #444; border-radius:4px; color:white; }
+      .profil-form button { margin-top:1rem; padding:0.6rem 1rem; background:#444; color:white; border:none; border-radius:4px; cursor:pointer; }
+      .profil-form button:hover { background:#666; }
+    </style>
 </head>
 <body>
 <header class=\"navbar\">
