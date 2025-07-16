@@ -30,7 +30,6 @@ $fahrzeuge = $pdo->query("SELECT * FROM fahrzeuge ORDER BY id DESC")->fetchAll(P
   <div class="navbar-user">
     <?php if (isset($_SESSION['nutzer'])): ?>
       Willkommen, <?= htmlspecialchars($_SESSION['nutzer']) ?> |
-      <a href="profil.php">Profil</a> |
       <a href="logout.php">Logout</a>
     <?php endif; ?>
   </div>
